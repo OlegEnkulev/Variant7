@@ -1,0 +1,44 @@
+﻿<Page x:Class="Variant7.Pages.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Variant7.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="LoginPage">
+
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <Image Source="/Images/logo.png" Width="150" Height="150"/>
+            <StackPanel Margin="10" VerticalAlignment="Center">
+                <Label Content="ООО «Рыбалка»" FontSize="28"/>
+                <Label Content="- магазин по продаже товаров для рыбалки в Абакане." FontSize="20"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel x:Name="CapchaPanel"  VerticalAlignment="Center" Margin="5" Visibility="Collapsed">
+                <Border Background="White" BorderBrush="#FF498C51" BorderThickness="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Source="/Images/capcha.png" Width="200" Height="100"/>
+                </Border>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <Label Content="Капча" FontSize="14" Width="100"/>
+                    <TextBox x:Name="CapchaBox" Width="150"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">
+                <Label Content="Вход" FontSize="20" Margin="5"/>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <Label Content="Логин" FontSize="14" Width="100"/>
+                    <TextBox x:Name="LoginBox" Width="150"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <Label Content="Пароль" FontSize="14" Width="100"/>
+                    <PasswordBox x:Name="PassBox" Width="150"/>
+                </StackPanel>
+                <Button x:Name="LoginBTN" Content="Войти" Click="LoginBTN_Click" Margin="5"/>
+                <Button x:Name="GuestBTN" Content="Войти как гость" Click="GuestBTN_Click" Margin="5"/>
+            </StackPanel>
+        </StackPanel>
+    </StackPanel>
+</Page>
