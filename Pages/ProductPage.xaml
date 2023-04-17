@@ -32,15 +32,15 @@
 
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2">
             <StackPanel Orientation="Horizontal">
-                <Label Content="Поиск" FontSize="14" Width="100" Margin="5"/>
+                <Label Content="Поиск" FontSize="14" Width="120" Margin="5"/>
                 <TextBox x:Name="SearchBox" TextChanged="SearchBox_TextChanged" Width="150" Margin="5"/>
-                <Label Content="Производитель" FontSize="14" Width="100" Margin="5"/>
+                <Label Content="Производитель" FontSize="14" Width="120" Margin="5"/>
                 <ComboBox x:Name="ManufacturerBox" SelectionChanged="ManufacturerBox_SelectionChanged" Width="150" Margin="5"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Label Content="Сортировка" FontSize="14" Width="100" Margin="5"/>
+                <Label Content="Сортировка" FontSize="14" Width="120" Margin="5"/>
                 <ComboBox x:Name="SortBox" SelectionChanged="ManufacturerBox_SelectionChanged" Width="150" Margin="5"/>
-                <Button Content="Выход" x:Name="ExitBTN" Click="ExitBTN_Click" Width="100" Margin="5"/>
+                <Button Content="Выход" x:Name="ExitBTN" Click="ExitBTN_Click" Width="150" Margin="135, 5, 5, 5"/>
             </StackPanel>
         </StackPanel>
     </Grid>

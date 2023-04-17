@@ -113,5 +113,71 @@ namespace Variant7.Pages
         {
             Core.ExitSystem();
         }
+
+        private void CreateBTN_Click(object sender, RoutedEventArgs e)
+        {
+            Core.mainWindow.MainFrame.Navigate(new EditProductPage());
+        }
+
+        private void EditBTN_Click(object sender, RoutedEventArgs e)
+        {
+            if (ProductListBox.SelectedItem == null)
+            {
+                MessageBox.Show("Не выбран элемент!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            try
+            {
+                Product product = ProductListBox.SelectedItem as Product;
+                Core.mainWindow.MainFrame.Navigate(new EditProductPage(product.ProductArticleNumber));
+            }
+            catch
+            {
+                MessageBox.Show("Произошла ошибка!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            
+        }
+
+        private void DeleteBTN_Click(object sender, RoutedEventArgs e)
+        {
+            if (ProductListBox.SelectedItem == null)
+            {
+                MessageBox.Show("Не выбран элемент!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (MessageBox.Show("Вы уверены, что хотите удалить это?", "Проверка", MessageBoxButton.YesNo, MessageBoxImage.Hand) == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    Product product = ProductListBox.SelectedItem as Product;
+                    Product delProduct = Core.DB.Product.Where(p => p.ProductArticleNumber == product.ProductArticleNumber).FirstOrDefault();
+                    Core.DB.Product.Remove(delProduct);
+                    Core.DB.SaveChanges();
+                    Search();
+                }
+                catch
+                {
+                    MessageBox.Show("Произошла ошибка!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+            }
+        }
+
+        private void EditCheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            if (EditCheckBox.IsChecked == true)
+            {
+                SortStack.Visibility = Visibility.Collapsed;
+                EditStack.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                SortStack.Visibility = Visibility.Visible;
+                EditStack.Visibility = Visibility.Collapsed;
+            }
+        }
     }
 }

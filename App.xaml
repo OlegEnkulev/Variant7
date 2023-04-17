@@ -42,7 +42,7 @@
                     <Border BorderBrush="#FF498C51" BorderThickness="3" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Image Width="100" Height="100">
                             <Image.Source>
-                                <Binding Path="ProductPhoto" >
+                                <Binding Path="ProductPhoto">
                                     <Binding.TargetNullValue>
                                         <ImageSource>/Images/picture.png</ImageSource>
                                     </Binding.TargetNullValue>

@@ -31,17 +31,24 @@
         <ListBox x:Name="ProductListBox" Grid.Row="1" ItemTemplate="{StaticResource ProductDataTemplate}" HorizontalAlignment="Center"/>
 
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2">
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Поиск" FontSize="14" Width="100" Margin="5"/>
-                <TextBox x:Name="SearchBox" TextChanged="SearchBox_TextChanged" Width="150" Margin="5"/>
-                <Label Content="Производитель" FontSize="14" Width="100" Margin="5"/>
-                <ComboBox x:Name="ManufacturerBox" SelectionChanged="ManufacturerBox_SelectionChanged" Width="150" Margin="5"/>
-                <Label Content="Сортировка" FontSize="14" Width="100" Margin="5"/>
-                <ComboBox x:Name="SortBox" SelectionChanged="ManufacturerBox_SelectionChanged" Width="150" Margin="5"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                
-                <Button Content="Выход" x:Name="ExitBTN" Click="ExitBTN_Click" Width="100" Margin="5"/>
+            <Grid>
+                <StackPanel x:Name="SortStack" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Label Content="Поиск" FontSize="14" Width="60" Margin="5"/>
+                    <TextBox x:Name="SearchBox" TextChanged="SearchBox_TextChanged" Width="150" Margin="5"/>
+                    <Label Content="Производитель" FontSize="14" Width="120" Margin="5"/>
+                    <ComboBox x:Name="ManufacturerBox" SelectionChanged="ManufacturerBox_SelectionChanged" Width="150" Margin="5"/>
+                    <Label Content="Сортировка" FontSize="14" Width="90" Margin="5"/>
+                    <ComboBox x:Name="SortBox" SelectionChanged="ManufacturerBox_SelectionChanged" Width="150" Margin="5"/>
+                </StackPanel>
+                <StackPanel x:Name="EditStack" Visibility="Collapsed" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="CreateBTN" Content="Создать" Width="150" Margin="5" Click="CreateBTN_Click"/>
+                    <Button x:Name="EditBTN" Content="Изменить" Width="150" Margin="5" Click="EditBTN_Click"/>
+                    <Button x:Name="DeleteBTN" Content="Удалить" Width="150" Margin="5" Click="DeleteBTN_Click"/>
+                </StackPanel>
+            </Grid>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <CheckBox Content="Редактировать" FontSize="14" Width="120" Margin="5" x:Name="EditCheckBox" Click="EditCheckBox_Click"/>
+                <Button Content="Выход" x:Name="ExitBTN" Click="ExitBTN_Click" Width="150" Margin="5"/>
             </StackPanel>
         </StackPanel>
     </Grid>
